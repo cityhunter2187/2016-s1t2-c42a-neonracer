@@ -152,6 +152,7 @@ public class Controls : MonoBehaviour {
                     
                     item.items.Remove(item.items[0]);
                     item.hasItem = false;
+                    item.randomItem = 0;
                 }
                 if (item.items[0].tag == "Banana")
                 {
@@ -159,6 +160,7 @@ public class Controls : MonoBehaviour {
                     Banana.transform.position = new Vector3(Banana.transform.position.x, transform.position.y, Banana.transform.position.z);
                     item.items.Remove(item.items[0]);
                     item.hasItem = false;
+                    item.randomItem = 0;
                 }
             }
         }

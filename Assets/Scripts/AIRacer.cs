@@ -19,7 +19,6 @@ public class AIRacer : MonoBehaviour
     public float distanceTo;
     public GameObject greenShell;
     public itemPickup item;
-    public float tracktime;
 
     void Start()
     {
@@ -32,10 +31,7 @@ public class AIRacer : MonoBehaviour
     }
     void Update()
     {
-        if (GameObject.Find("CutsceneManager").GetComponent<Countdown>().canStart == true)
-        {
-            tracktime = tracktime + Time.deltaTime;
-        }
+
         RaycastHit Hit;
         if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), transform.forward, out Hit, 1))
         {
@@ -67,7 +63,7 @@ public class AIRacer : MonoBehaviour
 
         checkForItem();
 
-        if (count.canStart == true) //Possible Error
+        if (count.canStart == true)
         {
             navmesh.speed = 3.5f;
             NavigateTowardsWaypoint();
@@ -157,7 +153,7 @@ public class AIRacer : MonoBehaviour
                     }
                 }
             }
-            if (item.items[0].tag == "Banana") //Possible Error
+            if (item.items[0].tag == "Banana")
             {
                         GameObject Banana = Instantiate(item.items[0], transform.position + -transform.forward * 3, Quaternion.Euler(270, 90, 0)) as GameObject;
                         Banana.transform.position = new Vector3(Banana.transform.position.x, -0.65f, Banana.transform.position.z);

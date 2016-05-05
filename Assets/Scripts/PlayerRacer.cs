@@ -12,7 +12,6 @@ public class PlayerRacer : MonoBehaviour {
     public float distanceTravelled = 0;
     Vector3 lastPosition;
     public float distanceTo;
-    public float tracktime;
 
 
     void Start()
@@ -23,12 +22,6 @@ public class PlayerRacer : MonoBehaviour {
     }
     void Update()
     {
-        if (GameObject.Find("CutsceneManager").GetComponent<Countdown>().canStart == true)
-        {
-            tracktime = tracktime + Time.deltaTime;
-            
-        }
-
         if (currentWaypoint == waypoints.Count)
         {
             currentWaypoint = 0;

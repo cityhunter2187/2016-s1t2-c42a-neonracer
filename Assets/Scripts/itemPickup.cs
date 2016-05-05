@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.UI;
 
 public class itemPickup : MonoBehaviour {
 
     public int currentItem;
     public GameObject shell;
     public GameObject banana;
+    public int randomItem;
     public bool hasItem = false;
     public List<GameObject> items;
     public GameObject box;
+    public Sprite ability1, ability2;
     Vector3 boxPos;
 
     void Start()
@@ -22,28 +25,35 @@ public class itemPickup : MonoBehaviour {
     }
     void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == "ItemBox")
+        if (col.gameObject.tag == "ItemBox")
         {
-            boxPos = col.gameObject.transform.position;
-            int randomItem = Random.Range(1, 3);
-            hasItem = true;
-            Destroy(col.gameObject);
-            if(randomItem == 1)
+            if (hasItem == false)
             {
-                if (items.Count < 1)
+                boxPos = col.gameObject.transform.position;
+                randomItem = Random.Range(1, 3);
+                hasItem = true;
+                Destroy(col.gameObject);
+                if (randomItem == 1)
                 {
-                    items.Add(shell);
-                }
-            }
-            if (randomItem == 2)
-            {
-                if (items.Count < 1)
-                {
-                    items.Add(banana);
-                }
-            }
-            StartCoroutine(spawnBox());
+                    if (items.Count < 1)
+                    {
 
+                        items.Add(shell);
+
+
+                    }
+                }
+                if (randomItem == 2)
+                {
+                    if (items.Count < 1)
+                    {
+                        items.Add(banana);
+
+                    }
+                }
+                StartCoroutine(spawnBox());
+
+            }
         }
     }
     IEnumerator spawnBox()
@@ -52,4 +62,6 @@ public class itemPickup : MonoBehaviour {
         Instantiate(box, boxPos, Quaternion.identity);
 
     }
+
+    
 }

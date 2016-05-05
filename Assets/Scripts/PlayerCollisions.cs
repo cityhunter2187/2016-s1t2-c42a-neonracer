@@ -19,8 +19,7 @@ public class PlayerCollisions : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start ()
-    {
+    void Start () {
         lapAudio = GameObject.Find("Line").GetComponents<AudioSource>();
         music = GameObject.Find("MusicMachine").GetComponent<AudioSource>();
         control = GameObject.Find("Player").GetComponent<Controls>();
