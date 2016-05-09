@@ -55,7 +55,7 @@ public class PlayerCollisions : MonoBehaviour {
                 lapAudio[0].Play();
             } else if (LapNumber == 3)
             {
-
+                GameObject.Find("ScoreboardControl").GetComponent<Scoreboard>().playerfin = true;
                 StartCoroutine(Lap3Audio());
                
             }

@@ -4,15 +4,15 @@ using UnityEngine.UI;
 
 public class Scoreboard : MonoBehaviour
 {
-    public bool playerfin = false;
+    public bool playerfin = false; //Whether or not the player has finished the race
     public bool AI1fin = false;
     public bool AI2fin = false;
     public bool AI3fin = false;
-    public bool racefin = false;
-    public float[] racetime;
-    public string[] timeDisplay;
-    public string[] name;
-    public Text ScoreboardText1;
+    public bool racefin = false;   //Whether or not the race has finished
+    public float[] racetime;       //The racers time
+    public string[] timeDisplay;   //The Display Variable
+    public string[] name;          //The Racers Name
+    public Text ScoreboardText1;   //The Individual Scoreboard Texts
     public Text ScoreboardText2;
     public Text ScoreboardText3;
     public Text ScoreboardText4;
@@ -28,7 +28,7 @@ public class Scoreboard : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if(playerfin==true)
+        if (playerfin==true)
         {
             racetime[0] = GameObject.Find("Player").GetComponent<PlayerRacer>().tracktime;
             name[0] = GameObject.Find("Player").name;

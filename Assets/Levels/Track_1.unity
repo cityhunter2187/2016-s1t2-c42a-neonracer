@@ -4532,6 +4532,7 @@ MonoBehaviour:
   currentItem: 0
   shell: {fileID: 100788, guid: 226f2e126cdd9fc4fb16a56a8bbf72a8, type: 2}
   banana: {fileID: 181120, guid: 1880f075e7b55df4f9b3e6553dcbd780, type: 2}
+  boost: {fileID: 192424, guid: 5fa957cc7c057114890e525af252d9c6, type: 2}
   hasItem: 0
   items: []
   box: {fileID: 144180, guid: 15a431f668754b74e8555a4dbf579937, type: 2}
@@ -6361,6 +6362,7 @@ MonoBehaviour:
   currentItem: 0
   shell: {fileID: 100788, guid: 226f2e126cdd9fc4fb16a56a8bbf72a8, type: 2}
   banana: {fileID: 181120, guid: 1880f075e7b55df4f9b3e6553dcbd780, type: 2}
+  boost: {fileID: 192424, guid: 5fa957cc7c057114890e525af252d9c6, type: 2}
   hasItem: 0
   items: []
   box: {fileID: 144180, guid: 15a431f668754b74e8555a4dbf579937, type: 2}
@@ -7267,6 +7269,7 @@ MonoBehaviour:
   currentItem: 0
   shell: {fileID: 100788, guid: 226f2e126cdd9fc4fb16a56a8bbf72a8, type: 2}
   banana: {fileID: 181120, guid: 1880f075e7b55df4f9b3e6553dcbd780, type: 2}
+  boost: {fileID: 192424, guid: 5fa957cc7c057114890e525af252d9c6, type: 2}
   hasItem: 0
   items: []
   box: {fileID: 144180, guid: 15a431f668754b74e8555a4dbf579937, type: 2}
@@ -12404,6 +12407,7 @@ MonoBehaviour:
   currentItem: 0
   shell: {fileID: 100788, guid: 226f2e126cdd9fc4fb16a56a8bbf72a8, type: 2}
   banana: {fileID: 181120, guid: 1880f075e7b55df4f9b3e6553dcbd780, type: 2}
+  boost: {fileID: 192424, guid: 5fa957cc7c057114890e525af252d9c6, type: 2}
   hasItem: 0
   items: []
   box: {fileID: 144180, guid: 15a431f668754b74e8555a4dbf579937, type: 2}

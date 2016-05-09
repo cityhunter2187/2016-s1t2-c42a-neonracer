@@ -9,6 +9,8 @@ public class Controls : MonoBehaviour {
     public float reverseSpeed = 0.1f;
     public float rotateSpeed = 0.1f;
     public float pitchSpeed = 0.0f;
+    private float speedBoost;       //Variables to hold the Boost (MPJ)
+    private float boostTime;        //Variables to hold how long the Boost lasts(MPJ)
     public float VolumeSpeed;
     public Countdown count;
     public GameObject Text1;
@@ -49,7 +51,19 @@ public class Controls : MonoBehaviour {
             Text3.SetActive(true);
         }
 
-        if(pitchSpeed > 1.1f)
+        #region BoostControl
+        if (boostTime > 0)
+        {
+            boostTime -= Time.deltaTime;
+            speedBoost = 1.5f;
+        }
+        else
+        {
+            speedBoost = 1.0f;
+        }
+        #endregion
+
+        if (pitchSpeed > 1.1f)
         {
             pitchSpeed = pitchSpeed - 0.01f;
         } else if(pitchSpeed < 0.5f)
@@ -63,9 +77,9 @@ public class Controls : MonoBehaviour {
         {
             VolumeSpeed = 1;
         }
-        if (speed >= 25)
+        if (speed >= 25 * speedBoost)
         {
-            speed = 25;
+            speed = 25 * speedBoost;
         }
         else if (speed < 0)
         {
@@ -94,7 +108,7 @@ public class Controls : MonoBehaviour {
             audio[0].Play();
             audio[0].pitch = pitchSpeed;
             audio[0].volume = VolumeSpeed;
-            speed += Time.deltaTime * 5;
+            speed += Time.deltaTime * 5 * speedBoost;
             transform.position += transform.forward * speed * Time.deltaTime;
         }
         else
@@ -157,6 +171,12 @@ public class Controls : MonoBehaviour {
                 {
                     GameObject Banana = Instantiate(item.items[0], transform.position + -transform.forward * 3, Quaternion.Euler(270, 90, 0)) as GameObject;
                     Banana.transform.position = new Vector3(Banana.transform.position.x, transform.position.y, Banana.transform.position.z);
+                    item.items.Remove(item.items[0]);
+                    item.hasItem = false;
+                }
+                if (item.items[0].tag == "Boost")
+                {
+                    boostTime = 30.0f;
                     item.items.Remove(item.items[0]);
                     item.hasItem = false;
                 }

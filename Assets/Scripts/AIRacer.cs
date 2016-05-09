@@ -20,6 +20,8 @@ public class AIRacer : MonoBehaviour
     public GameObject greenShell;
     public itemPickup item;
     public float tracktime;
+    private float speedBoost;       //Variables to hold the Boost (MPJ)
+    private float boostTime;        //Variables to hold how long the Boost lasts(MPJ)
 
     void Start()
     {
@@ -32,6 +34,18 @@ public class AIRacer : MonoBehaviour
     }
     void Update()
     {
+        #region BoostControl
+        if (boostTime > 0)
+        {
+            boostTime -= Time.deltaTime;
+            speedBoost = 1.5f;
+        }
+        else
+        {
+            speedBoost = 1.0f;
+        }
+        #endregion
+
         if (GameObject.Find("CutsceneManager").GetComponent<Countdown>().canStart == true)
         {
             tracktime = tracktime + Time.deltaTime;
@@ -71,9 +85,9 @@ public class AIRacer : MonoBehaviour
         {
             navmesh.speed = 3.5f;
             NavigateTowardsWaypoint();
-            if (speed >= 25)
+            if (speed >= 25 * speedBoost)
             {
-                speed = 25;
+                speed = 25 * speedBoost;
             }
             else if (speed < 0)
             {
@@ -106,7 +120,7 @@ public class AIRacer : MonoBehaviour
     }
     void NavigateTowardsWaypoint()
     {
-        speed += Time.deltaTime * 5;
+        speed += Time.deltaTime * 5 * speedBoost;
         navmesh.SetDestination(currentWaypointPos);
         transform.position += transform.forward * speed * Time.deltaTime;
     }
@@ -134,6 +148,7 @@ public class AIRacer : MonoBehaviour
         if (col.gameObject.tag == "Finish")
         {
             LapNumber++;
+
         }
     }
     void checkForItem()
@@ -164,6 +179,12 @@ public class AIRacer : MonoBehaviour
                         item.items.Remove(item.items[0]);
                         item.hasItem = false;
                     }
-                }
+            if (item.items[0].tag == "Boost") 
+            {
+                boostTime = 30.0f;
+                item.items.Remove(item.items[0]);
+                item.hasItem = false;
+            }
+        }
             }
         }

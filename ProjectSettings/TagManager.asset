@@ -12,6 +12,7 @@ TagManager:
   - ItemBox
   - Item
   - Banana
+  - Boost
   layers:
   - Default
   - TransparentFX
