@@ -11,7 +11,7 @@ public class TextScript : MonoBehaviour {
     public Transform Ai1;
     public Transform Ai2;
     public PlayerCollisions playerCol;
-    public int placement = 3;
+    public int placement = 2;
     public Controls player;
     public float distanceBetween;
     public AIRacer ai1;
