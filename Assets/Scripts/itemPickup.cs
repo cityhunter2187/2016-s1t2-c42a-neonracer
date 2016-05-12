@@ -47,7 +47,7 @@ public class itemPickup : MonoBehaviour {
             {
                 if (items.Count < 1)
                 {
-                    items.Add(banana);
+                    items.Add(boost);
                 }
             }
             StartCoroutine(spawnBox());
